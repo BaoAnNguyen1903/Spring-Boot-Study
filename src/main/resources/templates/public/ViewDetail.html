@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>View</h1>
+    <table border="1px">
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Type</td>
+            <td>Price</td>
+            <td>Quantiy</td>
+            <td>Image</td>
+        </tr>
+            <td th:text = "${ProducDetail.pid}"> ID</td>
+            <td th:text = "${ProducDetail.pName}"> Name</td>
+            <td th:text = "${ProducDetail.TypeProduct.tName}"> Type</td>
+            <td th:text = "${ProducDetail.price}"> Price</td>
+            <td th:text = "${ProducDetail.quantity}"> Quantity</td>
+            <td><img th:src = "${ProducDetail.img}" style="width: auto; height: 50px;"></td>
+            
+        </tr>
+    </table>
+    <h2><a th:href="@{/ShowOrder/{id}(id=${ProducDetail.pid})}" style="text-decoration: none; color: red;">Buy</a></h2>
+    <br>
+    <a th:href="@{/}">Back to home</a>
+    
+</body>
+</html>

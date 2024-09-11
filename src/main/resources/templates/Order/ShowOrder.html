@@ -1,0 +1,16 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Document</title>
+</head>
+<body>S
+    <form th:action="@{/OrderProduct}" method="post">
+        <input type="number"  name="pid" placeholder="pid" th:value="${ProductOrder.pid}">
+        <input type="text" disabled name="Name" placeholder="Name" th:value="${ProductOrder.pName}">
+        <input type="text" disabled name="Address" placeholder="Type" th:value="${ProductOrder.TypeProduct.tName}">
+        <input type="number" name="Quantity" placeholder="Please Input Quantity">
+        <button type="submit">Buy</button>
+    </form>
+</body>
+</html>
