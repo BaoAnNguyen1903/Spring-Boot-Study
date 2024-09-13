@@ -9,7 +9,9 @@
 <body>
     <h1> Index</h1>
     <div th:if="${session.UserAfterLogin == null}"> <a th:href="@{/Login}">Login</a></div>
-    <div th:if="${session.UserAfterLogin != null}"> Hello <span th:text="${session.UserAfterLogin.name}"></span>
+    <div th:if="${session.UserAfterLogin != null}"> Hello <span th:text="${session.UserAfterLogin.name}"></span> <br>Role: <strong th:text="${session.UserAfterLogin.role}"></strong>
+        <br>
+            <a th:href="@{/ShowOrderByUserId}">View Order</a>
         <br>
         <a th:href="@{/Logout}">Logout</a>
     </div>
@@ -37,10 +39,6 @@
     <div th:if="${session.UserAfterLogin != null and session.UserAfterLogin.role != 'U'}">
         <a th:href="@{/ShowAddProduct}">ADD NEW PRODUCT</a>
         </div>
-
-        <div th:if="${session.UserAfterLogin != null}">
-            <a th:href="@{/ViewOrder}">VIEW ORDER</a>
-            </div>
         
 </body>
 

@@ -69,7 +69,7 @@ public class OrderRepo {
         ps.setInt(1, oder.getUser().getUid());
         ps.setInt(2, oder.getProduct().getPid());
         ps.setInt(3, oder.getQuantity());
-        ps.setDouble(4, oder.getTotalprice());
+        ps.setDouble(4, oder.getTotalPrice());
         ps.executeUpdate();
     }
 }

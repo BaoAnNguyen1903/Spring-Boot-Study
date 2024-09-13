@@ -23,5 +23,5 @@ public class Order {
     private User user;
     private Product product;
     private int quantity;
-    private double totalprice;
+    private double totalPrice;
 }

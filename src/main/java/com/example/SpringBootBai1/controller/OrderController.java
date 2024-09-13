@@ -1,6 +1,8 @@
 package com.example.SpringBootBai1.controller;
 
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,8 +48,11 @@ public class OrderController {
     }
     //--------------------------------------------------------------//
 
-    // @GetMapping("/ViewOrder"){
-
-    // }
-    //Thanks u a Vinh
+    @GetMapping("/ShowOrderByUserId")
+    public String showOrderByUserId(HttpSession httpSession,Model model)throws Exception{
+        User user = (User) httpSession.getAttribute("UserAfterLogin");
+        ArrayList<Order> ordList = orderRepo.getAllOrderByUserId(user.getUid());
+        model.addAttribute("OrderList", ordList);
+        return "Order/showOrderByUserId";
+    }
 }
