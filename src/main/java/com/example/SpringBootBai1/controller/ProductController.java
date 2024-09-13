@@ -70,5 +70,18 @@ public class ProductController {
         productRepo.updateProductBypid(product);
         return "redirect:/";
     }
-
+    // -------------------------------------------------------------------------------------------//
+    // Search Product
+    @PostMapping("/SearchProduct")
+    public String searchProduct(@RequestParam("Search") String Search, Model model) throws Exception{
+        ArrayList<Product> pList = productRepo.getAllProduct();
+        ArrayList<Product> findProduct = new ArrayList<>();
+        for (Product product : pList) {
+            if (product.getPName().contains(Search)) {
+                findProduct.add(product);
+            }
+        }
+        model.addAttribute("ProductList", findProduct);
+        return "public/index";
+    }
 }

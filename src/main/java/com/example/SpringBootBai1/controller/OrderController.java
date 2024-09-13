@@ -27,6 +27,7 @@ public class OrderController {
     ProductRepo productRepo;
 
     //--------------------------------------------------------------//
+    //Order product
     @GetMapping("/ShowOrder/{id}")
     public String ShowOrder(@PathVariable("id") int id, Model model)throws Exception {
         Product product = productRepo.getProductBypid(id);
@@ -47,7 +48,7 @@ public class OrderController {
         return "redirect:/";
     }
     //--------------------------------------------------------------//
-
+    //View Order
     @GetMapping("/ShowOrderByUserId")
     public String showOrderByUserId(HttpSession httpSession,Model model)throws Exception{
         User user = (User) httpSession.getAttribute("UserAfterLogin");

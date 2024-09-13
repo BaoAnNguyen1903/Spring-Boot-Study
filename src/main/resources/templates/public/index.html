@@ -15,6 +15,14 @@
         <br>
         <a th:href="@{/Logout}">Logout</a>
     </div>
+    
+    <div>
+        <form th:action="@{/SearchProduct}" method="post">
+            <input type="text" name="Search" placeholder="Search Product">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
     <table border="1px">
         <tr>
             <td>Id</td>

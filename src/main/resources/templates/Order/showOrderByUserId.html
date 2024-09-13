@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>View Order</h1>
-    <table>
+    <table border="1px">
         <tr>
             <td>Id</td>
             <td>Product Name</td>
@@ -18,11 +18,12 @@
         <tr th:each="o : ${OrderList}">
             <td th:text="${o.oid}">ID</td>
             <td th:text="${o.product.pName}">Name</td>
-            <td><img th:src="${o.product.img}" alt=""></td>
+            <td><img th:src="${o.product.img}" style="width: auto; height: 30px;"></td>
             <td th:text="${o.quantity}">Quantity</td>
             <td th:text="${o.product.price}">Price</td>
             <td th:text="${o.totalPrice}">Total Price</td>
         </tr>
     </table>
+    <a th:href="@{/}">back to home</a>
 </body>
 </html>
