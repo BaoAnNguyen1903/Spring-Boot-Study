@@ -25,6 +25,8 @@ public class OrderController {
     OrderRepo orderRepo;
     @Autowired
     ProductRepo productRepo;
+    @Autowired
+    ArrayList<Product> cartList = new ArrayList<>();
 
     //--------------------------------------------------------------//
     //Order product
@@ -55,5 +57,30 @@ public class OrderController {
         ArrayList<Order> ordList = orderRepo.getAllOrderByUserId(user.getUid());
         model.addAttribute("OrderList", ordList);
         return "Order/showOrderByUserId";
+    }
+
+    //--------------------------------------------------------------//
+    //ADD TO CARD
+    @GetMapping("/AddToCard/{id}")
+    public String addToCard(@PathVariable("id") int id, HttpSession httpSession)throws Exception{
+        Product product = productRepo.getProductBypid(id);
+        for (Product p : cartList) {
+            if (p.getPid()==product.getPid()) {
+                p.setQuantity(p.getQuantity()+1);
+                return "redirect:/";
+            }
+        }
+        product.setQuantity(1);
+        cartList.add(product);
+        httpSession.setAttribute("CartList", cartList);
+        return "redirect:/";
+    }
+    //--------------------------------------------------------------//
+    // SHOW CARD
+    @GetMapping("ShowCard")
+    public String showCard(HttpSession httpSession, Model model) throws Exception{
+        ArrayList<Product> proList = (ArrayList<Product>)httpSession.getAttribute("CartList");
+        model.addAttribute("CartListModel", proList);
+        return "Order/showCard";
     }
 }

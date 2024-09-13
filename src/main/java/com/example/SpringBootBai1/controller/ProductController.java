@@ -77,7 +77,7 @@ public class ProductController {
         ArrayList<Product> pList = productRepo.getAllProduct();
         ArrayList<Product> findProduct = new ArrayList<>();
         for (Product product : pList) {
-            if (product.getPName().contains(Search)) {
+            if (product.getPName().toLowerCase().contains((Search.toLowerCase()))) {
                 findProduct.add(product);
             }
         }
