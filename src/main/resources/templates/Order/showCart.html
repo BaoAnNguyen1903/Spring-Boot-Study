@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>showCart</title>
+</head>
+<body>
+    <h1>VIEW CART</h1>
+    <table border="1px">
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Quantity</td>
+            <td>Subtotal</td>
+            <td>Img</td>
+            <td>Check</td>
+        </tr>
+        <tr th:each="s : ${CartListModel}">
+            <td th:text="${s.pid}">ID</td>
+            <td th:text="${s.pName}">Name</td>
+            <td th:text="${s.price}">Price</td>
+            <td>
+                <a th:href="@{/Reduce/{id}(id=${s.pid})}">-</a>
+                <input th:value="${s.quantity}" disabled style="width: 30px;">
+                <a th:href="@{/Increase/{id}(id=${s.pid})}">+</a>
+            </td>
+            <td th:text="${s.price * s.quantity}">Subtotal</td>
+            <td><img th:src="${s.img}" style="width: auto; height: 50px;"></td>
+            <form>
+                <td><input type="checkbox" name="check"></td>
+            </form>
+        </tr>
+    </table>
+    <a th:href="@{/BuyProductInCart}">BUY PRODUCT</a>
+    <br>
+    <a th:href="@{/}">BACK TO HOME</a>
+</body>
+</html>

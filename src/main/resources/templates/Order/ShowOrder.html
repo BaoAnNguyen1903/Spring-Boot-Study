@@ -7,7 +7,7 @@
 <body>
     <h1>Order</h1>
     <form th:action="@{/OrderProduct}" method="post">
-        <input type="number"  name="pid" placeholder="pid" th:value="${ProductOrder.pid}">
+        <input type="number" disabled name="pid" placeholder="pid" th:value="${ProductOrder.pid}">
         <input type="text" disabled name="Name" placeholder="Name" th:value="${ProductOrder.pName}">
         <input type="text" disabled name="Address" placeholder="Type" th:value="${ProductOrder.TypeProduct.tName}">
         <input type="number" name="Quantity" placeholder="Please Input Quantity">

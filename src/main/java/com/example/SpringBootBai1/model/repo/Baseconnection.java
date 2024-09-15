@@ -8,7 +8,7 @@ public class Baseconnection {
     static String url = "jdbc:mysql://localhost:3306/banhangmvc";
     static String username = "root";
     static String password = "0987689426Ba#";
-    static String nameClass = "com.mysql.cj.jdbc.Driver";
+static String nameClass = "com.mysql.cj.jdbc.Driver";
 
     public static void main(String[] args) {
         // Thông tin kết nối
